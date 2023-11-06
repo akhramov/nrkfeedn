@@ -1,0 +1,33 @@
+* Fattigmanns NRK Radio
+
+RSS feeder til NRK offentligjøres ikke. Derfor må man enten bruke appen eller websiden for å lytte til podkastene.
+
+Noen bruker forsatt enheter som ikke kan kobles til Internet, for eksempel IPod Classic.
+
+Denne appen benytter NRKs [[https://psapi.nrk.no/documentation/][PSAPI]] for å bygge RSS feeder av de podkastene du ønsker.
+
+* Bruk
+
+** Registrere en podkast
+
+For å opprette en RSS-feed for en podcast må du registrere den. Det gjøres i to steg.
+
+*** Steg en: finn podkastens id
+
+Besøk podkastens nettsted på https://radio.nrk.no. For oppdatert det er https://radio.nrk.no/podkast/oppdatert.
+Oppdaterts id er ~oppdatert~.
+
+
+*** Steg to: registrere podkasten
+
+#+BEGIN_SRC sh
+% curl -x POST http://localhost:8084/oppdatert
+#+END_SRC
+
+** Få podkastens feeden
+
+Etter at podkasten er registrert, er feeden tilgjengelig ved å sende en GET-forespørsel.
+
+#+BEGIN_SRC sh
+% curl http://localhost:8084/oppdatert
+#+END_SRC
